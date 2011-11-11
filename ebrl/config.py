@@ -13,7 +13,7 @@ else:
     cfg_file = os.path.join(os.path.expanduser('~'), '.ebrl.cfg')
 
 cfg = ConfigParser()
-cfg.read(cfg_File)
+cfg.read(cfg_file)
 
 def tl2dict(tl):
     """ Takes a list of 2-tuples and returns a dict """
