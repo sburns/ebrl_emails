@@ -24,16 +24,20 @@ if __name__ == '__main__':
     #  Sort on behav id
     data.sort(key=lambda x: int(x['participant_id'].split('_')[0]))
 
-    body = """RCV Redcap database as of {time}
+    body = """<html><body><h2>RCV Redcap database as of {time}</h2>
     
-
-{0:15s}{1:15s}{2:15s}
+<table>
+<tr>
+<td>{0:15s}</td><td>{1:15s}</td><td>{2:15s}</td>
 {d}
+</table>
+</body></html>
     """
     
-    d = '\n'.join(["{0:15s}{1:15s}{2:15s}".format(x['participant_id'], 
+    d = '\n'.join(["<tr><td>{0:15s}</td><td>{1:15s}</td><td>{2:15s}</td></tr>".format(x['participant_id'], 
         x['scan_num'], x['im_date']) for x in data])
     
     body_to_send = body.format('ID', 'Scan Num', 'Scan Date', d=d, time=time.strftime('%A, %d %b %Y'))
     subject = "[EBRL Automated Email] Reading Comprehension Redcap (Imaging)"
-    mail(TO, subject, body_to_send)
+    print body_to_send
+    #  mail(TO, subject, body_to_send)
