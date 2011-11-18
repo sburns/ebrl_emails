@@ -49,7 +49,7 @@ if __name__ == '__main__':
     
     body_to_send = body.format('ID', 'Scan Num', 'Scan Date', d=d,
         time=time.strftime('%A, %d %b %Y'), tot_scans=tot_scans)
-    subject = "[EBRL Automated Email] Reading Comprehension Redcap (Imaging)"
+    subject = "[EBRL Automated Email] LERD Redcap (Imaging)"
     if DEBUG:
       print body_to_send
     else:
