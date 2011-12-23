@@ -41,7 +41,7 @@ if __name__ == '__main__':
         x['scan_num'], x['im_date']) for x in data])
     
     tot_subs = len(d)
-    tot_scans = len([x for x in data if re.match('(\d){4,6}', x['scan_num'])])
+    tot_scans = len([x for x in data if re.match('(\d){4,6}', x['scan_num']) and int(x['scan_num']) > 0])
     
     body_to_send = body.format('ID', 'Scan Num', 'Scan Date', d=d,
         time=time.strftime('%A, %d %b %Y'), tot_scans=tot_scans)
